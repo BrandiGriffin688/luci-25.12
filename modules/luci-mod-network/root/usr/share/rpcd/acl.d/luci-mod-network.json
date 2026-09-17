@@ -9,15 +9,16 @@
 				"/proc/sys/net/ipv6/conf/*/hop_limit": [ "read" ],
 				"/usr/libexec/luci-peeraddr": [ "exec" ],
 				"/proc/sys/net/ipv[46]/conf/*": [ "read" ],
-				"/sys/class/net/*/brport/*": [ "read" ]
+				"/sys/class/net/*/brport/*": [ "read" ],
+				"/usr/lib/opkg/info/netifd.control": [ "read" ],
+				"/bin/sh": ["exec"]					
 			},
 			"ubus": {
 				"file": [ "exec" ],
 				"iwinfo": [ "assoclist", "countrylist", "freqlist", "txpowerlist" ],
-				"luci": [ "getSwconfigFeatures", "getSwconfigPortState" ],
-				"network.device": [ "status" ]
+				"luci": [ "getSwconfigFeatures", "getSwconfigPortState" ]
 			},
-			"uci": [ "dhcp", "firewall", "luci", "network", "wireless", "system" ]
+			"uci": [ "dhcp", "firewall", "network", "wireless", "system" ]
 		},
 		"write": {
 			"cgi-io": [ "exec" ],
@@ -31,7 +32,7 @@
 				"hostapd.*": [ "del_client" ],
 				"iwinfo": [ "scan" ]
 			},
-			"uci": [ "dhcp", "firewall", "luci", "network", "wireless" ]
+			"uci": [ "dhcp", "firewall", "network", "wireless" ]
 		}
 	},
 
